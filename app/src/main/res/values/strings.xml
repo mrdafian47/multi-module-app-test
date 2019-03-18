@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">MultiModuleApp</string>
+
+    <string name="menu_album">Album</string>
+    <string name="menu_todo">Todo</string>
+    <string name="menu_user">User</string>
+
+</resources>

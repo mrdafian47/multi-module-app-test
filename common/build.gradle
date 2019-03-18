@@ -1,0 +1,96 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+}
+
+dependencies {
+
+    // KOTLIN
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    api "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+
+    // ANKO
+    api "org.jetbrains.anko:anko:$ankoVersion"
+    api "org.jetbrains.anko:anko-commons:$ankoVersion"
+    api "org.jetbrains.anko:anko-design:$ankoVersion"
+    api "org.jetbrains.anko:anko-recyclerview-v7:$ankoVersion"
+
+    // SUPPORT
+    api "com.android.support:support-v4:$supportVersion"
+    api "com.android.support:appcompat-v7:$supportVersion"
+    api "com.android.support:design:$supportVersion"
+    api "com.android.support:recyclerview-v7:$supportVersion"
+    api "com.android.support:cardview-v7:$supportVersion"
+    api "com.android.support.constraint:constraint-layout:$constraintVersion"
+
+    // NETWORK
+    api "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    api "com.squareup.okhttp3:okhttp-urlconnection:$okhttpVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+    api "com.squareup.retrofit2:retrofit:$retrofit2Version"
+    api "com.squareup.retrofit2:converter-jackson:$retrofit2Version"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version"
+    api "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    api "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion"
+
+    // FIREBASE
+    api "com.google.firebase:firebase-core:16.0.7"
+    api "com.google.firebase:firebase-analytics:16.3.0"
+    api "com.google.firebase:firebase-auth:16.1.0"
+    api "com.google.firebase:firebase-messaging:17.4.0"
+    api "com.google.firebase:firebase-crash:16.2.1"
+    api "com.google.firebase:firebase-config:16.3.0"
+
+    // PLAY SERVICES
+    api "com.google.android.gms:play-services-places:16.0.0"
+    api "com.google.android.gms:play-services-location:16.0.0"
+
+    // MOENGAGE
+    api "com.moengage:moe-android-sdk:9.3.02"
+
+    // NAVIGATION
+    api 'android.arch.navigation:navigation-fragment:1.0.0-rc02'
+    api 'android.arch.navigation:navigation-ui:1.0.0-rc02'
+
+    // RX
+    api "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    api "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+
+    // IMAGE
+    api "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    // DI
+    api "org.koin:koin-android:$koinVersion"
+    api "org.koin:koin-android-viewmodel:$koinVersion"
+
+    // LOG
+    api "com.jakewharton.timber:timber:$timberVersion"
+
+    testImplementation "junit:junit:4.12"
+    testImplementation "org.koin:koin-test:$koinVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
+
+    androidTestImplementation "org.mockito:mockito-android:$mockitoVersion"
+    androidTestImplementation "com.android.support.test:rules:1.0.2"
+    androidTestImplementation "com.android.support.test:runner:1.0.2"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-idling-resource:$espressoVersion"
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$espressoVersion") {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
+}
