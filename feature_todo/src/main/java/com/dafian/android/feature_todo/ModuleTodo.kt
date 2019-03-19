@@ -5,11 +5,11 @@ import com.dafian.android.feature_todo.repository.TodoRepository
 import com.dafian.android.feature_todo.repository.TodoRepositoryImpl
 import org.koin.dsl.module.module
 
-val moduleTodo = module("com.dafian.android.feature_todo", override = true) {
+val moduleTodo = module {
 
-    single("com.dafian.android.feature_todo") { RestServiceFactory.makeClientService(get(), get()) }
+    single { RestServiceFactory.makeClientService(get(), get()) }
 
-    single { RestServiceFactory.makeRestService(get(), getProperty("com.dafian.android.feature_todo"), get()) }
+    single { RestServiceFactory.makeRestService(get(), get(), get()) }
 
     single<TodoRepository> { TodoRepositoryImpl(get()) }
 }

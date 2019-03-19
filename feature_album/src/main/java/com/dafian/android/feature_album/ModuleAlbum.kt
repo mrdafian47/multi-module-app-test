@@ -7,11 +7,11 @@ import com.dafian.android.feature_album.ui.AlbumPresenter
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
-val moduleAlbum = module("com.dafian.android.feature_album", override = true) {
+val moduleAlbum = module {
 
-    single("com.dafian.android.feature_album") { RestServiceFactory.makeClientService(get(), get()) }
+    single { RestServiceFactory.makeClientService(get(), get()) }
 
-    single { RestServiceFactory.makeRestService(get(), getProperty("com.dafian.android.feature_album"), get()) }
+    single { RestServiceFactory.makeRestService(get(), get(), get()) }
 
     single<AlbumRepository> { AlbumRepositoryImpl(get()) }
 
