@@ -66,6 +66,7 @@ class AlbumFragment : BaseFragment(), NavigationFragment {
     private fun loadingData() {
 
         swAlbum.isRefreshing = true
+
         presenter.getAlbumAll()
 
         presenter.albumModelList.observe(this, Observer {

@@ -9,9 +9,9 @@ import org.koin.dsl.module.module
 
 val moduleUser = module {
 
-    single { RestServiceFactory.makeClientService(get(), get()) }
+    single(name = "user_client") { RestServiceFactory.makeClientService(get(), get()) }
 
-    single { RestServiceFactory.makeRestService(get(), get(), get()) }
+    single { RestServiceFactory.makeRestService(get(), get(name = "user_client"), get()) }
 
     single<UserRepository> { UserRepositoryImpl(get()) }
 

@@ -13,6 +13,7 @@ android {
 
 dependencies {
 
+    api project(':common')
     api project(':feature_album')
     api project(':feature_todo')
     api project(':feature_user')

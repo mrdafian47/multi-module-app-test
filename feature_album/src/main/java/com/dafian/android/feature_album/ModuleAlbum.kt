@@ -9,9 +9,9 @@ import org.koin.dsl.module.module
 
 val moduleAlbum = module {
 
-    single { RestServiceFactory.makeClientService(get(), get()) }
+    single(name = "album_client") { RestServiceFactory.makeClientService(get(), get()) }
 
-    single { RestServiceFactory.makeRestService(get(), get(), get()) }
+    single { RestServiceFactory.makeRestService(get(), get(name = "album_client"), get()) }
 
     single<AlbumRepository> { AlbumRepositoryImpl(get()) }
 
